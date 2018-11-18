@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobHuntOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="JobID" Type="Guid" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExpectedSalary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CandidateID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentID" Type="Guid" />
+    <Property Name="IsViewed" Type="Boolean" />
+    <Property Name="DateSubmitted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ApplicationStatu" Relationship="Self.FK_Application_Document" FromRole="Application" ToRole="ApplicationStatus" />
+    <NavigationProperty Name="Job" Relationship="Self.FK_Application_Job" FromRole="Application" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="ApplicationStatu">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Application_Document" FromRole="ApplicationStatus" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_Candidate_Candidate" FromRole="AspNetUsers" ToRole="Candidate" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Document_DocumentType" FromRole="AspNetUsers" ToRole="Document" />
+    <NavigationProperty Name="Employer" Relationship="Self.FK_Employer_AspNetUsers" FromRole="AspNetUsers" ToRole="Employer" />
+    <NavigationProperty Name="UserDocuments" Relationship="Self.FK_UserDocument_User" FromRole="AspNetUsers" ToRole="UserDocument" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateRegistered" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Candidate_Candidate" FromRole="Candidate" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RegionId" Type="Int32" />
+    <NavigationProperty Name="Region" Relationship="Self.FK_City_Region" FromRole="City" ToRole="Region" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_Location_City" FromRole="City" ToRole="Location" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoumentContent" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="OwnerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Document_DocumentType" FromRole="Document" ToRole="AspNetUsers" />
+    <NavigationProperty Name="UserDocuments" Relationship="Self.FK_UserDocument_Document" FromRole="Document" ToRole="UserDocument" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Employer">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Employer_AspNetUsers" FromRole="Employer" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="Int32" />
+    <Property Name="EmployerID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinSalary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MaxSalary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Deadline" Type="DateTime" Precision="3" />
+    <Property Name="DatedAdded" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Application_Job" FromRole="Job" ToRole="Application" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_Job_JobCategory" FromRole="Job" ToRole="Location" />
+  </EntityType>
+  <EntityType Name="JobCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Jobs_Types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="JobId" Type="Guid" />
+    <Property Name="JobType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="JobType1" Relationship="Self.FK_Jobs_Types_Job" FromRole="Jobs_Types" ToRole="JobType" />
+  </EntityType>
+  <EntityType Name="JobType">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Jobs_Types" Relationship="Self.FK_Jobs_Types_Job" FromRole="JobType" ToRole="Jobs_Types" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Location_City" FromRole="Location" ToRole="City" />
+    <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_JobCategory" FromRole="Location" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="City" Relationship="Self.FK_City_Region" FromRole="Region" ToRole="City" />
+  </EntityType>
+  <EntityType Name="UserDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentId" Type="Guid" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_UserDocument_User" FromRole="UserDocument" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Document" Relationship="Self.FK_UserDocument_Document" FromRole="UserDocument" ToRole="Document" />
+  </EntityType>
+  <Association Name="FK_Application_Document">
+    <End Role="ApplicationStatus" Type="Self.ApplicationStatu" Multiplicity="0..1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplicationStatus">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Job">
+    <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_Candidate">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_DocumentType">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employer_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Employer" Type="Self.Employer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocument_User">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="UserDocument" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserDocument">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_Region">
+    <End Role="Region" Type="Self.Region" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocument_Document">
+    <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
+    <End Role="UserDocument" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserDocument">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_JobCategory">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Job" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Types_Job">
+    <End Role="JobType" Type="Self.JobType" Multiplicity="0..1" />
+    <End Role="Jobs_Types" Type="Self.Jobs_Types" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobType">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Jobs_Types">
+        <PropertyRef Name="JobType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="JobHuntOnlineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Applications" EntityType="Self.Application" />
+    <EntitySet Name="ApplicationStatus" EntityType="Self.ApplicationStatu" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Candidates" EntityType="Self.Candidate" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Documents" EntityType="Self.Document" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+    <EntitySet Name="Employers" EntityType="Self.Employer" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <EntitySet Name="JobCategories" EntityType="Self.JobCategory" />
+    <EntitySet Name="Jobs_Types" EntityType="Self.Jobs_Types" />
+    <EntitySet Name="JobTypes" EntityType="Self.JobType" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="Regions" EntityType="Self.Region" />
+    <EntitySet Name="UserDocuments" EntityType="Self.UserDocument" />
+    <AssociationSet Name="FK_Application_Document" Association="Self.FK_Application_Document">
+      <End Role="ApplicationStatus" EntitySet="ApplicationStatus" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Job" Association="Self.FK_Application_Job">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_Candidate" Association="Self.FK_Candidate_Candidate">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_DocumentType" Association="Self.FK_Document_DocumentType">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employer_AspNetUsers" Association="Self.FK_Employer_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Employer" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocument_User" Association="Self.FK_UserDocument_User">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserDocument" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_Region" Association="Self.FK_City_Region">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_City" Association="Self.FK_Location_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Location" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocument_Document" Association="Self.FK_UserDocument_Document">
+      <End Role="Document" EntitySet="Documents" />
+      <End Role="UserDocument" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_JobCategory" Association="Self.FK_Job_JobCategory">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Types_Job" Association="Self.FK_Jobs_Types_Job">
+      <End Role="JobType" EntitySet="JobTypes" />
+      <End Role="Jobs_Types" EntitySet="Jobs_Types" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

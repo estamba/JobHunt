@@ -1,0 +1,11 @@
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\bin\Debug\JobHuntOnline.DAL.dll.config
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\bin\Debug\JobHuntOnline.DAL.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\bin\Debug\JobHuntOnline.DAL.pdb
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\bin\Debug\EntityFramework.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\bin\Debug\EntityFramework.xml
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\obj\Debug\JobHuntOnline.DAL.csprojResolveAssemblyReference.cache
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\obj\Debug\JobHuntOnline.DAL.csproj.CoreCompileInputs.cache
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\obj\Debug\JobHuntOnline.DAL.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\JobHuntOnline.DAL\obj\Debug\JobHuntOnline.DAL.pdb

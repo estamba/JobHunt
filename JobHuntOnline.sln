@@ -1,0 +1,99 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntOnline", "JobHuntOnline\JobHuntOnline.csproj", "{42B771F5-2326-426C-BB31-70A331A49DF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntOnline.WebTemplate", "JobHuntOnline.WebTemplate\JobHuntOnline.WebTemplate.csproj", "{90705A20-55DA-4FA2-A88D-CA71B818781D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntOnline.WebAPI", "JobHuntOnline.WebAPI\JobHuntOnline.WebAPI.csproj", "{A75B059A-4ECD-4DAE-96B3-78E206AEA3C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntOnline.Common", "JobHuntOnline.Common\JobHuntOnline.Common.csproj", "{2D3F5474-2EFB-4732-ACE7-F84AEC7702C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntOnline.Service", "OnlineJobHunt.Service\JobHuntOnline.Service.csproj", "{8A916514-4034-4FA3-A294-1815F7693CD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntOnline.DAL", "JobHuntOnline.DAL\JobHuntOnline.DAL.csproj", "{D16E3D8E-E225-48E1-9A45-EB37DCBC226F}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "JobHuntOnline.Database", "..\JobHuntOnline.Database\Database\JobHuntOnline.Database.sqlproj", "{A0B28066-2F5F-44DE-A24D-F4EFB9858F36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{C17C7D86-007C-4B42-A65C-AAA06CDA2CCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42B771F5-2326-426C-BB31-70A331A49DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B771F5-2326-426C-BB31-70A331A49DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B771F5-2326-426C-BB31-70A331A49DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B771F5-2326-426C-BB31-70A331A49DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90705A20-55DA-4FA2-A88D-CA71B818781D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90705A20-55DA-4FA2-A88D-CA71B818781D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90705A20-55DA-4FA2-A88D-CA71B818781D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90705A20-55DA-4FA2-A88D-CA71B818781D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A75B059A-4ECD-4DAE-96B3-78E206AEA3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A75B059A-4ECD-4DAE-96B3-78E206AEA3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A75B059A-4ECD-4DAE-96B3-78E206AEA3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A75B059A-4ECD-4DAE-96B3-78E206AEA3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D3F5474-2EFB-4732-ACE7-F84AEC7702C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D3F5474-2EFB-4732-ACE7-F84AEC7702C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D3F5474-2EFB-4732-ACE7-F84AEC7702C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D3F5474-2EFB-4732-ACE7-F84AEC7702C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A916514-4034-4FA3-A294-1815F7693CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A916514-4034-4FA3-A294-1815F7693CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A916514-4034-4FA3-A294-1815F7693CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A916514-4034-4FA3-A294-1815F7693CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D16E3D8E-E225-48E1-9A45-EB37DCBC226F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D16E3D8E-E225-48E1-9A45-EB37DCBC226F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D16E3D8E-E225-48E1-9A45-EB37DCBC226F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D16E3D8E-E225-48E1-9A45-EB37DCBC226F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0B28066-2F5F-44DE-A24D-F4EFB9858F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B28066-2F5F-44DE-A24D-F4EFB9858F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B28066-2F5F-44DE-A24D-F4EFB9858F36}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A0B28066-2F5F-44DE-A24D-F4EFB9858F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B28066-2F5F-44DE-A24D-F4EFB9858F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0B28066-2F5F-44DE-A24D-F4EFB9858F36}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C17C7D86-007C-4B42-A65C-AAA06CDA2CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C17C7D86-007C-4B42-A65C-AAA06CDA2CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C17C7D86-007C-4B42-A65C-AAA06CDA2CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C17C7D86-007C-4B42-A65C-AAA06CDA2CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3C2DAB7-B8F8-4207-8815-B3B7751D65B0}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://devestamba.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = JobHuntOnline.WebTemplate\\JobHuntOnline.WebTemplate.csproj
+		SccProjectName1 = JobHuntOnline.WebTemplate
+		SccLocalPath1 = JobHuntOnline.WebTemplate
+		SccProjectUniqueName2 = JobHuntOnline\\JobHuntOnline.csproj
+		SccProjectName2 = JobHuntOnline
+		SccLocalPath2 = JobHuntOnline
+		SccProjectUniqueName3 = JobHuntOnline.WebAPI\\JobHuntOnline.WebAPI.csproj
+		SccProjectName3 = JobHuntOnline.WebAPI
+		SccLocalPath3 = JobHuntOnline.WebAPI
+		SccProjectUniqueName4 = JobHuntOnline.Common\\JobHuntOnline.Common.csproj
+		SccProjectName4 = JobHuntOnline.Common
+		SccLocalPath4 = JobHuntOnline.Common
+		SccProjectUniqueName5 = OnlineJobHunt.Service\\JobHuntOnline.Service.csproj
+		SccProjectName5 = OnlineJobHunt.Service
+		SccLocalPath5 = OnlineJobHunt.Service
+		SccProjectUniqueName6 = JobHuntOnline.DAL\\JobHuntOnline.DAL.csproj
+		SccProjectName6 = JobHuntOnline.DAL
+		SccLocalPath6 = JobHuntOnline.DAL
+		SccProjectUniqueName7 = ..\\JobHuntOnline.Database\\Database\\JobHuntOnline.Database.sqlproj
+		SccProjectName7 = ../JobHuntOnline.Database/Database
+		SccLocalPath7 = ..\\JobHuntOnline.Database\\Database
+		SccProjectUniqueName8 = UnitTestProject1\\UnitTestProject1.csproj
+		SccProjectName8 = UnitTestProject1
+		SccLocalPath8 = UnitTestProject1
+	EndGlobalSection
+EndGlobal

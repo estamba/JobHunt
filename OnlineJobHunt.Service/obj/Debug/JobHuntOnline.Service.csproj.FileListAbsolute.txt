@@ -1,0 +1,11 @@
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\bin\Debug\OnlineJobHunt.Service.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\bin\Debug\OnlineJobHunt.Service.pdb
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\bin\Debug\JobHuntOnline.DAL.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\bin\Debug\EntityFramework.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\bin\Debug\JobHuntOnline.DAL.pdb
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\bin\Debug\JobHuntOnline.DAL.dll.config
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\bin\Debug\EntityFramework.xml
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\obj\Debug\JobHuntOnline.Service.csprojResolveAssemblyReference.cache
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\obj\Debug\JobHuntOnline.Service.csproj.CoreCompileInputs.cache
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\obj\Debug\OnlineJobHunt.Service.dll
+C:\Users\abdoulie\Desktop\JobHuntOnline\OnlineJobHunt.Service\obj\Debug\OnlineJobHunt.Service.pdb

@@ -1,0 +1,97 @@
+﻿@model RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+
+
+<section>
+    <div class="block no-padding  gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner2">
+                        <div class="inner-title2">
+                            <h3>Register</h3>
+                            <span>Keep up to date with the latest news</span>
+                        </div>
+                        <div class="page-breacrumbs">
+                            <ul class="breadcrumbs">
+                                <li><a href="#" title="">Home</a></li>
+                                <li><a href="#" title="">Pages</a></li>
+                                <li><a href="#" title="">Register</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="block remove-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="account-popup-area signup-popup-box static">
+                        <div class="account-popup">
+                            <h3>Sign Up</h3>
+                            <span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
+                            <div class="select-user">
+                                <span>Candidate</span>
+                                <span>Employer</span>
+                            </div>
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                            {
+
+                                @Html.ValidationSummary(false, "", new {@class = "text-danger" })
+                                <div class="dropdown-field">
+                                    @Html.DropDownListFor(x => x.AccountType, Model.AccountTypes, new { @class = "chosen" })
+
+                                </div>
+                                <div class="cfield">
+                                    @Html.TextBoxFor(x => x.Name, new { placeholder = "Full Name" })
+                                    <i class="la la-user"></i>
+                                </div>
+                                <div class="cfield">
+                                    @Html.TextBoxFor(x => x.Email, new { placeholder = "Email" })
+                                    <i class="la la-envelope-o"></i>
+                                </div>
+                                <div class="cfield">
+                                    @Html.TextBoxFor(x => x.ConfirmEmail, new { placeholder = " Confirm Email" })
+
+                                    <i class="la la-envelope-o"></i>
+                                </div>
+
+                                <div class="cfield">
+                                    @Html.TextBoxFor(x => x.PhoneNumber, new { placeholder = "Phone number" })
+
+                                    <i class="la la-phone"></i>
+                                </div>
+
+                                <div class="cfield">
+                                    @Html.EditorFor(x => x.Password, new { placeholder = "********" })
+
+                                    <i class="la la-key"></i>
+                                </div>
+                                <button type="submit">Signup</button>
+                            }
+
+                            <div class="extra-login">
+                                <span>Or</span>
+                                <div class="login-social">
+                                    <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                                    <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- SIGNUP POPUP -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
